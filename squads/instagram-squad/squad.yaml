@@ -1,0 +1,19 @@
+name: "instagram-squad"
+description: "Squad para criação de conteúdo estratégico para Instagram com foco em contraste B2B e autoridade."
+version: "1.0.0"
+
+skills:
+  - web_search
+  - web_fetch
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+
+pipeline:
+  dir: ./pipeline
+  file: pipeline.yaml

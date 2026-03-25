@@ -1,0 +1,51 @@
+---
+name: "Instagram Contrast Pipeline"
+steps:
+  - id: 01-research
+    name: "News Research"
+    agent: rita-referencia
+    tasks: [tasks/find-news.md, tasks/rank-stories.md]
+    output: squads/instagram-squad/output/ranked-news.md
+
+  - id: 02-news-selection
+    name: "News Selection"
+    type: checkpoint
+    inputFile: squads/instagram-squad/output/ranked-news.md
+    outputFile: squads/instagram-squad/output/selected-news.md
+
+  - id: 03-angle-generation
+    name: "Generate Angles"
+    agent: italo-instagram
+    tasks: [tasks/generate-angles.md]
+    output: squads/instagram-squad/output/content-angles.md
+
+  - id: 04-angle-selection
+    name: "Angle Selection"
+    type: checkpoint
+    inputFile: squads/instagram-squad/output/content-angles.md
+    outputFile: squads/instagram-squad/output/selected-angle.md
+
+  - id: 05-content-creation
+    name: "Create Content"
+    agent: italo-instagram
+    tasks: [tasks/create-instagram-feed.md, tasks/optimize-content.md]
+    output: squads/instagram-squad/output/optimized-feed.md
+
+  - id: 06-content-approval
+    name: "Content Approval"
+    type: checkpoint
+    inputFile: squads/instagram-squad/output/optimized-feed.md
+    outputFile: squads/instagram-squad/output/content-approval.md
+
+  - id: 07-review
+    name: "Final Review"
+    agent: vera-veredito
+    tasks: [tasks/score-content.md, tasks/generate-feedback.md]
+    output: squads/instagram-squad/output/reviewer-feedback.md
+    on_reject: 05-content-creation
+
+  - id: 08-final-approval
+    name: "Final Approval"
+    type: checkpoint
+    inputFile: squads/instagram-squad/output/reviewer-feedback.md
+---

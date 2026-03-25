@@ -1,0 +1,4 @@
+id,name,role,path
+rita-referencia,Rita Referência,Pesquisadora de Tendências de IA,./agents/rita-referencia.agent.md
+italo-instagram,Ítalo Instagram,Copywriter B2B Estratégico,./agents/italo-instagram.agent.md
+vera-veredito,Vera Veredito,Revisora de Autoridade,./agents/vera-veredito.agent.md
