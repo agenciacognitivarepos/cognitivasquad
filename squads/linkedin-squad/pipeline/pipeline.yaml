@@ -1,0 +1,65 @@
+steps:
+  - id: step-01-research-focus
+    name: "Definir Foco da Pesquisa"
+    type: checkpoint
+    outputFile: squads/linkedin-squad/output/research-focus.md
+
+  - id: step-02-discovery
+    name: "Descoberta de Notícias"
+    agent: rita-referencia
+    execution: subagent
+    inputFile: squads/linkedin-squad/output/research-focus.md
+    outputFile: squads/linkedin-squad/output/news-found.md
+    tasks:
+      - tasks/find-news.md
+      - tasks/rank-stories.md
+
+  - id: step-03-news-selection
+    name: "Seleção da Notícia"
+    type: checkpoint
+    inputFile: squads/linkedin-squad/output/news-found.md
+    outputFile: squads/linkedin-squad/output/selected-story.md
+
+  - id: step-04-angle-generation
+    name: "Geração de Ângulos"
+    agent: lucas-linkedin
+    execution: inline
+    inputFile: squads/linkedin-squad/output/selected-story.md
+    outputFile: squads/linkedin-squad/output/content-angles.md
+    tasks:
+      - tasks/generate-angles.md
+
+  - id: step-05-angle-selection
+    name: "Seleção do Ângulo"
+    type: checkpoint
+    inputFile: squads/linkedin-squad/output/content-angles.md
+    outputFile: squads/linkedin-squad/output/selected-angle.md
+
+  - id: step-06-creation
+    name: "Criação do Post"
+    agent: lucas-linkedin
+    execution: inline
+    inputFile: squads/linkedin-squad/output/selected-angle.md
+    outputFile: squads/linkedin-squad/output/linkedin-post.md
+    tasks:
+      - tasks/create-linkedin-post.md
+      - tasks/optimize-linkedin-post.md
+
+  - id: step-07-content-review
+    name: "Revisão e Veredito"
+    agent: vera-veredito
+    execution: inline
+    inputFile: squads/linkedin-squad/output/linkedin-post.md
+    outputFile: squads/linkedin-squad/output/review-result.md
+    tasks:
+      - tasks/score-content.md
+      - tasks/generate-feedback.md
+    on_reject:
+      target: step-06-creation
+      feedbackFile: squads/linkedin-squad/output/review-result.md
+
+  - id: step-08-final-approval
+    name: "Aprovação Final"
+    type: checkpoint
+    inputFile: squads/linkedin-squad/output/linkedin-post.md
+    outputFile: squads/linkedin-squad/output/final-post.md

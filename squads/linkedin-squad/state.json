@@ -1,0 +1,52 @@
+{
+    "squad": "linkedin-squad",
+    "status": "running",
+    "step": {
+        "current": 8,
+        "total": 8,
+        "label": "step-08-final-approval"
+    },
+    "agents": [
+        {
+            "id": "rita-referencia",
+            "name": "Rita Referência",
+            "icon": "🔍",
+            "status": "done",
+            "deliverTo": null,
+            "desk": {
+                "col": 1,
+                "row": 1
+            }
+        },
+        {
+            "id": "lucas-linkedin",
+            "name": "Lucas LinkedIn",
+            "icon": "📝",
+            "status": "done",
+            "deliverTo": null,
+            "desk": {
+                "col": 2,
+                "row": 1
+            }
+        },
+        {
+            "id": "vera-veredito",
+            "name": "Vera Veredito",
+            "icon": "✅",
+            "status": "done",
+            "deliverTo": null,
+            "desk": {
+                "col": 3,
+                "row": 1
+            }
+        }
+    ],
+    "handoff": {
+        "from": "vera-veredito",
+        "to": "user",
+        "message": "Post aprovado na revisão técnica. Pronto para sua validação final.",
+        "completedAt": "2026-03-31T18:58:24Z"
+    },
+    "startedAt": "2026-03-31T18:34:34Z",
+    "updatedAt": "2026-03-31T18:58:24Z"
+}

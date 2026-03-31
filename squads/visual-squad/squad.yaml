@@ -1,0 +1,16 @@
+name: "visual-squad"
+description: "Squad responsável por transformar roteiros em imagens PNG usando Canva e Automação MCP."
+version: "1.0.0"
+
+skills:
+  - canva # Usará o MCP configurado no .mcp.json
+
+data:
+  - ../instagram-squad/output/feed-script.md
+  - ../../pipeline/data/research-brief.md
+  - ../../pipeline/data/domain-framework.md
+  - ../../pipeline/data/tone-of-voice.md
+
+pipeline:
+  dir: ./pipeline
+  file: pipeline.yaml

@@ -1,0 +1,22 @@
+squad:
+  id: linkedin-squad
+  name: LinkedIn Evolution Squad
+  description: Pesquisa, planejamento e criação de conteúdo de alta autoridade para o LinkedIn.
+  version: 1.0.0
+  performance_mode: alta-performance
+  language: pt-br
+
+skills:
+  - web_search
+  - web_fetch
+
+data:
+  - pipeline/data/research-brief.md
+  - pipeline/data/domain-framework.md
+  - pipeline/data/quality-criteria.md
+  - pipeline/data/output-examples.md
+  - pipeline/data/anti-patterns.md
+  - pipeline/data/tone-of-voice.md
+
+pipeline:
+  file: pipeline/pipeline.yaml

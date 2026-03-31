@@ -1,0 +1,33 @@
+---
+name: "Visual Generation Pipeline"
+steps:
+  - id: 01-visual-planning
+    name: "Visual Planning"
+    agent: dani-design
+    tasks: [tasks/analyze-script.md]
+    output: squads/visual-squad/output/visual-briefing.yaml
+
+  - id: 02-planning-approval
+    name: "Design Briefing Approval"
+    type: checkpoint
+    inputFile: squads/visual-squad/output/visual-briefing.yaml
+    outputFile: squads/visual-squad/output/approved-briefing.yaml
+
+  - id: 03-automation
+    name: "Canva Automation"
+    agent: tico-tecnico
+    tasks: [tasks/execute-mcp-canva.md]
+    output: squads/visual-squad/output/images/
+
+  - id: 04-visual-review
+    name: "Visual Review"
+    agent: vitor-vitrine
+    tasks: [tasks/visual-review.md]
+    output: squads/visual-squad/output/review-report.md
+    on_reject: 03-automation
+
+  - id: 05-final-export
+    name: "Final Approval & Handover"
+    type: checkpoint
+    inputFile: squads/visual-squad/output/review-report.md
+---

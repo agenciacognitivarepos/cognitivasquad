@@ -1,0 +1,4 @@
+id,name,role,path
+dani-design,Dani Design,Especialista em Composição Visual,./agents/dani-design.agent.md
+tico-tecnico,Tico Técnico,Especialista em Automação Canva,./agents/tico-tecnico.agent.md
+vitor-vitrine,Vitor Vitrine,Revisor de Estética Premium,./agents/vitor-vitrine.agent.md

@@ -1,0 +1,4 @@
+id,name,role,path,icon
+rita-referencia,Rita Referência,Researcher,./agents/rita-referencia.agent.md,🔍
+lucas-linkedin,Lucas LinkedIn,Creator,./agents/lucas-linkedin.agent.md,📝
+vera-veredito,Vera Veredito,Reviewer,./agents/vera-veredito.agent.md,✅
